@@ -1,0 +1,1 @@
+java -jar /Volumes/ark/code/3rd_party/picard-tools-1.97/picard-tools-1.97/CalculateHsMetrics.jar BI=../exons_coordinates.full.hg19.bed.intervals TI=../exons_coordinates.full.hg19.bed.intervals I=seq.sorted.bam O=seq.sorted.bam.meterics R=/Volumes/ark/genomes/hg19/hg19_all.fa LEVEL=ALL_READS VALIDATION_STRINGENCY=SILENT >&2.log &

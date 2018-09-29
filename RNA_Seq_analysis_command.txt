@@ -1,0 +1,15 @@
+/Volumes/ark/code/3rd_party/tophat-2.0.11/tophat2 /Volumes/ark/genomes/Mus_musculus/UCSC/mm10/Sequence/Bowtie2Index/genome R1.fastq R2.fastq 
+
+ls -1 | perl -ne'chomp;chdir "$_";system("/Volumes/ark/code/3rd_party/tophat-2.0.11/tophat2 /Volumes/ark/genomes/Mus_musculus/UCSC/mm10/Sequence/Bowtie2Index/genome R1.fastq R2.fastq >& tophat2.log &");chdir "..";'
+
+ls -1 | perl -ne'chomp;chdir "$_";system("/Volumes/ark/code/3rd_party/cufflinks-2.1.1/cufflinks -G /Volumes/ark/genomes/Mus_musculus/UCSC/mm10/Annotation/Genes/genes.gtf -o cufflinks tophat_out/accepted_hits.bam >& run.log &");chdir "..";'
+
+/Volumes/ark/code/3rd_party/cufflinks-2.1.1/cuffmerge -s /Volumes/ark/genomes/Mus_musculus/UCSC/mm10/Sequence/Bowtie2Index/genome.fa -o Merged_trans assembly_GTF_list.txt
+
+cuffdiff -o Rx_WT.vs.P53 Merged_trans/merged.gtf  Project_CL_Brd4_CLL/Sample_1088WT-pos/tophat_out/accepted_hits.bam,Project_CL_Brd4_CLL/Sample_1097WT-pos/tophat_out/accepted_hits.bam,Project_CL_Brd4_CLL/Sample_1274WT-pos/tophat_out/accepted_hits.bam,Project_CL_Brd4-CLL-Nu77/Sample_1191WTplus/tophat_out/accepted_hits.bam,Project_CL_Brd4-CLL-Nu77/Sample_1279WT-plus/tophat_out/accepted_hits.bam Project_CL_Brd4-CLL-Nu77/Sample_1320Hplus-plus/tophat_out/accepted_hits.bam,Project_CL_Brd4-CLL-Nu77/Sample_1332H-plus-JQ1/tophat_out/accepted_hits.bam,Project_CL_Brd4-CLL-Nu77/Sample_1336Hplus-plus/tophat_out/accepted_hits.bam >& Rx_WT.vs.P53.log &
+
+
+For Human:
+ls -1 | perl -ne'chomp;chdir "$_";system("/Volumes/ark/code/3rd_party/tophat-2.0.11/tophat2 /Volumes/ark/genomes/Homo_sapiens/UCSC/hg19/Sequence/Bowtie2Index/genome R1.fastq R2.fastq >& tophat2.log &");chdir "..";'
+
+ls -1 | perl -ne'chomp;chdir "$_";system("/Volumes/ark/code/3rd_party/cufflinks-2.1.1/cufflinks -G /Volumes/ark/genomes/Homo_sapiens/UCSC/hg19/Annotation/Genes/genes.gtf -o cufflinks tophat_out/accepted_hits.bam >& run.log &");chdir "..";'
