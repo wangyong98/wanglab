@@ -1,0 +1,1 @@
+/volumes/neo/code/3rd_party/samtools-1.2/samtools mpileup -BQ0 -d1000000000 -f /volumes/neo/genomes/hg19/hg19_all.fa Amplic-A1D-B1_CGATGTA.sorted.q30.bam Amplic-A1D-B2_TGACCAA.sorted.q30.bam >& Amplicon_AD_sorted.q30.dq0.mpileup &

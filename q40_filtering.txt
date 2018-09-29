@@ -1,0 +1,1 @@
+/volumes/neo/code/3rd_party/samtools-1.2/samtools view -q 40 -bh SKN2-2.sorted.marked.re_aln.bam > SKN2-2.sorted.marked.re_aln.q40.bam &
